@@ -1,0 +1,455 @@
+/* DEAD AIR — interface styling.
+   Dusk palette: deep ink panels, warm amber accents, pale paper text.
+   The game fills the viewport; HUD panels float over the corners. */
+:root {
+  --ink: #14161c;
+  --panel: rgba(16, 19, 26, 0.82);
+  --line: rgba(255, 255, 255, 0.14);
+  --paper: #f3ede0;
+  --dim: #9a938a;
+  --amber: #ffb451;
+  --coral: #ff7a5c;
+  --mint: #8ff8e3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #0c0d12;
+  color: var(--paper);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top and bottom chrome bars. */
+header,
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  background: var(--ink);
+  z-index: 5;
+}
+
+header b {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+header b i {
+  color: var(--coral);
+  font-style: normal;
+}
+
+header b small {
+  font-weight: 400;
+  color: var(--dim);
+  letter-spacing: 0.28em;
+}
+
+header span em {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7be495;
+  margin-right: 6px;
+}
+
+footer b {
+  color: var(--amber);
+  letter-spacing: 0.22em;
+}
+
+footer span strong {
+  color: var(--paper);
+}
+
+main {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+}
+
+#screen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  background: linear-gradient(#2b3247, #1a1c26 55%, #12131a);
+}
+
+/* Title screen: poster on the left, pitch and buttons on the right. */
+#title {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  background: rgba(10, 11, 16, 0.55);
+  z-index: 4;
+}
+
+#title .poster {
+  position: relative;
+  flex: 1.25;
+  overflow: hidden;
+}
+
+#title .poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+#title .covertext {
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7);
+}
+
+#title .covertext label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--mint);
+}
+
+#title .covertext h1 {
+  font-size: 84px;
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+#title .covertext h1 span {
+  font-size: 30px;
+  vertical-align: top;
+}
+
+#title .covertext p {
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 0.32em;
+}
+
+#title .covertext p strong {
+  color: var(--amber);
+}
+
+#title .plate {
+  position: absolute;
+  right: 18px;
+  bottom: 16px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+#title article {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 44px;
+  background: #101218;
+}
+
+#title article label {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--coral);
+}
+
+#title article label i {
+  font-style: normal;
+}
+
+#title article h2 {
+  font-size: 52px;
+  line-height: 1.02;
+  font-weight: 800;
+}
+
+#title article p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #c9c2b8;
+  max-width: 420px;
+}
+
+#title article button {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  padding: 13px 18px;
+  text-align: left;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  background: var(--amber);
+  border: none;
+  cursor: pointer;
+}
+
+#title article button b {
+  float: right;
+}
+
+#title article button + button {
+  margin-top: -6px;
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--line);
+}
+
+#title article aside {
+  margin-top: 8px;
+  font-size: 12px;
+  letter-spacing: 0.26em;
+  color: var(--dim);
+}
+
+#title article aside span {
+  color: var(--mint);
+}
+
+/* HUD: four corner panels and a centre toast. */
+#hud {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.panel {
+  position: absolute;
+  padding: 12px 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(2px);
+}
+
+.panel label {
+  display: block;
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  color: var(--coral);
+  margin-bottom: 4px;
+}
+
+.panel h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.panel span {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: #d8d2c6;
+}
+
+.panel small {
+  display: block;
+  margin-top: 6px;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--amber);
+}
+
+.mission {
+  top: 16px;
+  left: 16px;
+  min-width: 260px;
+}
+
+.stats {
+  top: 16px;
+  right: 16px;
+  text-align: right;
+  min-width: 150px;
+}
+
+.stats span {
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  font-size: 15px;
+}
+
+.map {
+  bottom: 16px;
+  left: 16px;
+  padding: 8px;
+}
+
+.map canvas {
+  display: block;
+  width: 138px;
+  height: 138px;
+}
+
+.map small {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.dash {
+  bottom: 16px;
+  right: 16px;
+  text-align: right;
+  min-width: 170px;
+}
+
+.dash h3 {
+  font-size: 30px;
+}
+
+.toast {
+  position: absolute;
+  left: 50%;
+  bottom: 110px;
+  transform: translateX(-50%);
+  padding: 9px 18px;
+  background: var(--panel);
+  border-left: 3px solid var(--amber);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.toast:empty {
+  display: none;
+}
+
+/* Modal dialogs: pause, win, lose, errors. */
+#modal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(8, 9, 13, 0.62);
+  z-index: 6;
+}
+
+#modal article {
+  width: min(520px, 90vw);
+  padding: 30px 34px;
+  background: #14161d;
+  border: 1px solid var(--line);
+}
+
+#modal label {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--coral);
+}
+
+#modal h2 {
+  margin: 8px 0 10px;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+#modal p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #c9c2b8;
+  margin-bottom: 20px;
+}
+
+#modal button {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  color: var(--paper);
+  background: transparent;
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+
+#modal button:first-of-type {
+  color: var(--ink);
+  background: var(--amber);
+  border-color: var(--amber);
+}
+
+button:hover {
+  filter: brightness(1.12);
+}
+
+/* Touch controls for coarse pointers. */
+#touch {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  padding: 12px;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#touch button {
+  pointer-events: auto;
+  min-width: 56px;
+  padding: 12px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--paper);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 760px) {
+  #title {
+    flex-direction: column;
+  }
+  #title .poster {
+    flex: 0 0 38%;
+  }
+  #title .covertext h1 {
+    font-size: 52px;
+  }
+  #title article {
+    padding: 22px;
+  }
+  #title article h2 {
+    font-size: 34px;
+  }
+  .mission {
+    min-width: 0;
+    max-width: 52vw;
+  }
+  .panel h3 {
+    font-size: 18px;
+  }
+  .map canvas {
+    width: 96px;
+    height: 96px;
+  }
+}

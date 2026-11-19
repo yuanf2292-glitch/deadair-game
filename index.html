@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>Dead Air — Kestrel Quay</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <b><i>▥</i> BREAKWATER <small>INTERACTIVE</small></b
+      ><span><em></em> SYSTEM ONLINE　 /　 BUILD 02.00</span>
+    </header>
+    <main>
+      <canvas id="screen"></canvas>
+      <section id="title">
+        <div class="poster">
+          <img src="art/cover.jpg" alt="In-engine street view of the Moth coupe in Kestrel Quay" />
+          <div class="covertext">
+            <label>▰　 BREAKWATER ORIGINALS　 /　 Nº 001</label>
+            <h1>DEAD<br />AIR<span>®</span></h1>
+            <p>KESTREL QUAY <strong> // </strong> 1998</p>
+          </div>
+          <div class="plate">FIG. 01　/　SOUTH DOCKS</div>
+        </div>
+        <article>
+          <label><i>●</i>　PIRATE TRANSMISSION</label>
+          <h2>Own the<br />airwaves.</h2>
+          <p>
+            The port authority cut the signal. As courier Vale Rook, run the tapes, lift a ride, and put
+            Kestrel Quay back on air.
+          </p>
+          <button id="start">Start transmission <b>↗</b></button
+          ><button id="resume" hidden>Load checkpoint <b>→</b></button
+          ><button id="watch">Watch city feed <b>▷</b></button>
+          <aside>CHANNEL 07 <span>▪ ▃ ▅ ▂ ▆ ▃ ▇ ▄ ▂</span> 98.4 FM</aside>
+        </article>
+      </section>
+      <div id="hud" hidden></div>
+      <div id="modal" hidden></div>
+      <div id="touch" hidden></div>
+    </main>
+    <footer>
+      <b>◈　KESTREL QUAY</b><span>OFFLINE ARCADE　 /　 <strong>01</strong></span>
+    </footer>
+    <script src="vendor/three.min.js"></script>
+    <script src="src/core.js"></script>
+    <script src="src/chance.js"></script>
+    <script src="src/quay.js"></script>
+    <script src="src/motors.js"></script>
+    <script src="src/crowd.js"></script>
+    <script src="src/patrol.js"></script>
+    <script src="src/jobs.js"></script>
+    <script src="src/screen.js"></script>
+    <script src="src/sound.js"></script>
+    <script src="src/fx.js"></script>
+    <script src="src/keys.js"></script>
+    <script src="src/stage.js"></script>
+    <script src="src/view.js"></script>
+    <script src="src/boot.js"></script>
+  </body>
+</html>
