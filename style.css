@@ -32,6 +32,18 @@ body {
   flex-direction: column;
 }
 
+/* The hidden attribute must win: the #title / #modal / #touch rules below
+   set display: flex and the #title article button rule sets display: block,
+   and any author display rule beats the UA's [hidden] { display: none }.
+   Without this, a hidden title/modal/pad stays on screen forever. */
+#title[hidden],
+#hud[hidden],
+#modal[hidden],
+#touch[hidden],
+#resume[hidden] {
+  display: none !important;
+}
+
 /* Top and bottom chrome bars. */
 header,
 footer {
